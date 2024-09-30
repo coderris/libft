@@ -11,12 +11,24 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	malloc(nmemb * size);
-	if (nmemb == 0 || size == 0)
-		return (malloc(1));
-	else
-		return (malloc(nmemb * size));
+	char	*aux;
+	size_t	space;
+	int	i;
+
+	i = 0;
+	space = nmemb * size;
+	if (nmemb == 0 && size == 0)
+		space = 1;
+	aux = malloc(space);
+	while (aux[i] != '\0')
+	{
+		aux[i] = 0;
+		i++;
+	}
+	return (aux);
 }
