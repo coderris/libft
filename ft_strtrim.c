@@ -85,15 +85,3 @@ char *ft_strtrim(char const *s1, char const *set)
     str[i] = '\0';
     return (str);
 }
-
-int main (void)
-{
-    char const  s1[] = "ababMy name is Simonaaabb";
-    char const  set[] = "ab";
-    char    *p;
-
-    p = ft_strtrim(s1,set);
-    printf("%s", p);
-    free(p);
-    return (0);
-}
