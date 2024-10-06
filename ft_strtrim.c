@@ -5,13 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lanton-m <lanton-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/01 01:21:50 by lanton-m          #+#    #+#             */
-/*   Updated: 2024/10/01 01:21:50 by lanton-m         ###   ########.fr       */
+/*   Created: 2024/10/06 19:02:23 by lanton-m          #+#    #+#             */
+/*   Updated: 2024/10/06 19:02:39 by lanton-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 size_t  ft_num_char_up_front(char const *s1, char const *set)
 {
@@ -65,7 +64,7 @@ char *ft_strtrim(char const *s1, char const *set)
     size_t  s1_length;
     size_t  upfront;
     size_t  last;
-    
+
     i = 0;
     s1_length = ft_strlen(s1);
     upfront = ft_num_char_up_front(s1,set);
