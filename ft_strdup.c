@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lanton-m <lanton-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/30 21:55:14 by lanton-m          #+#    #+#             */
-/*   Updated: 2024/09/30 21:55:14 by lanton-m         ###   ########.fr       */
+/*   Created: 2024/10/06 18:44:28 by lanton-m          #+#    #+#             */
+/*   Updated: 2024/10/06 19:05:51 by lanton-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char *ft_strdup(const char *s1)
     if (ft_strlen(s1) > 16711568)
         return (NULL);
     aux = malloc(ft_strlen(s1) + 1);
-    while(i < ft_strlen(s1) + 1)
+    while(i < (int)ft_strlen(s1) + 1)
     {
         aux[i] = s1[i];
         i++;

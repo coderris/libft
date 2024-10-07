@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lanton-m <lanton-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 20:21:41 by lanton-m          #+#    #+#             */
-/*   Updated: 2024/10/05 20:21:41 by lanton-m         ###   ########.fr       */
+/*   Created: 2024/10/06 18:45:02 by lanton-m          #+#    #+#             */
+/*   Updated: 2024/10/06 19:06:07 by lanton-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void ft_striteri(char *s, void (*f)(unsigned int, char*))
 
     i = 0;
     if (!s || !f)
-        return (NULL);
+        return;
     while (s[i] != '\0')
     {
         f(i,&s[i]);

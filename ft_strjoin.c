@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lanton-m <lanton-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/01 00:49:59 by lanton-m          #+#    #+#             */
-/*   Updated: 2024/10/01 00:49:59 by lanton-m         ###   ########.fr       */
+/*   Created: 2024/10/06 18:45:30 by lanton-m          #+#    #+#             */
+/*   Updated: 2024/10/06 18:46:21 by lanton-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char *ft_strjoin(char const *s1, char const *s2)
     while (s1[i] != '\0')
     {
         str[i] = s1[i];
-        i++; 
+        i++;
     }
     while (s2[j] != '\0')
     {

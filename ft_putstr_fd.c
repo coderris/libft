@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lanton-m <lanton-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 20:40:38 by lanton-m          #+#    #+#             */
-/*   Updated: 2024/10/05 20:40:38 by lanton-m         ###   ########.fr       */
+/*   Created: 2024/10/06 18:42:56 by lanton-m          #+#    #+#             */
+/*   Updated: 2024/10/06 19:04:20 by lanton-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void ft_putstr_fd(char *s, int fd)
 
     i = 0;
     if (!s)
-        return (NULL);
+        return;
     while(s[i] != '\0')
     {
         write(fd, &s[i], 1);
