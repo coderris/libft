@@ -6,7 +6,7 @@
 /*   By: lanton-m <lanton-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 19:30:13 by lanton-m@st       #+#    #+#             */
-/*   Updated: 2024/10/06 20:41:45 by lanton-m         ###   ########.fr       */
+/*   Updated: 2024/10/17 22:06:22 by lanton-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,15 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	char	*aux;
 	size_t	space;
-	int	i;
+	int		i;
 
 	i = 0;
 	space = nmemb * size;
 	if (nmemb == 0 && size == 0)
 		space = 1;
 	aux = malloc(space);
+	if (!aux)
+		return (NULL);
 	while (aux[i] != '\0')
 	{
 		aux[i] = 0;
