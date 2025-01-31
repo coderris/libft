@@ -1,47 +1,38 @@
 NAME = libft.a
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
-SRCS = $(wildcard *.c)
-OBJS = $(SRCS:.c=.o)
+CFLAGS = -Wall -Werror -Wextra
+SRCS = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c \
+       ft_isascii.c ft_isdigit.c ft_isprint.c ft_itoa.c ft_striteri.c \
+       ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c \
+       ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c \
+       ft_split.c ft_strchr.c ft_strdup.c ft_strjoin.c ft_strlcat.c \
+       ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c \
+       ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c
+SRCS_BONUS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c \
+             ft_lstadd_back_bonus.c ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c \
+             ft_lstmap_bonus.c
 
-# Regla para compilar los archivos objeto
-%.o: %.c
+OBJ = $(SRCS:.c=.o)
+OBJ_BONUS = $(SRCS_BONUS:.c=.o)
+INCL = libft.h
+
+%.o: %.c $(INCL)
 	$(CC) $(CFLAGS) -c $< -o $@
-	
 
-# Regla para compilar la librería libft
-$(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
-	@echo "\033[32m\nLibft Compiled! ᕦ(\033[31m♥\033[32m_\033[31m♥\033[32m)ᕤ\n"
+$(NAME): $(OBJ)
+	ar rcs $(NAME) $(OBJ)
 
-# Regla para compilar todos los archivos
 all: $(NAME)
 
-# Regla para limpiar archivos objeto
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJ)
 
-# Regla para limpiar archivos objeto y ejecutables
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) $(OBJ_BONUS)
 
-# Regla para recompilar todo
 re: fclean all
 
-# Regla para compilar los bonus
-BONUS_SRCS = $(wildcard *_bonus.c)
-BONUS_OBJS = $(BONUS_SRCS:.c=.o)
-BONUS_NAME = $(NAME)_bonus
+bonus: $(NAME) $(OBJ_BONUS)
+	ar rcs $(NAME) $(OBJ) $(OBJ_BONUS)
 
-bonus: $(BONUS_OBJS)
-	ar rcs $(BONUS_NAME) $(BONUS_OBJS)
-
-# Regla para limpiar archivos objeto y ejecutables de los bonus
-clean_bonus:
-	rm -f $(BONUS_OBJS) $(BONUS_NAME)
-
-# Regla para agregar al comando fclean
-fclean: clean clean_bonus
-
-# Especifica palabras clave que no son archivos.
-.PHONY: all clean fclean re bonus clean_bonus
+.PHONY: clean fclean all re bonus
