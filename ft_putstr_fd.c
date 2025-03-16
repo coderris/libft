@@ -6,22 +6,22 @@
 /*   By: lanton-m <lanton-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 18:42:56 by lanton-m          #+#    #+#             */
-/*   Updated: 2024/10/06 19:04:20 by lanton-m         ###   ########.fr       */
+/*   Updated: 2024/10/13 21:20:57 by lanton-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd(char *s, int fd)
 {
-    size_t  i;
+	size_t	i;
 
-    i = 0;
-    if (!s)
-        return;
-    while(s[i] != '\0')
-    {
-        write(fd, &s[i], 1);
-        i++;
-    }
+	i = 0;
+	if (!s)
+		return ;
+	while (s[i] != '\0')
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
 }

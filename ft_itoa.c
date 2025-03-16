@@ -6,13 +6,13 @@
 /*   By: lanton-m <lanton-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 18:40:15 by lanton-m          #+#    #+#             */
-/*   Updated: 2024/10/06 20:41:59 by lanton-m         ###   ########.fr       */
+/*   Updated: 2024/10/31 20:31:09 by lanton-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_size(int n)
+static size_t	ft_size(int n)
 {
 	size_t	counter;
 
@@ -25,37 +25,12 @@ size_t	ft_size(int n)
 	return (counter);
 }
 
-char	*ft_itoa(int n)
+static char	*fill_str(int n, size_t sign, size_t special)
 {
+	char	*number;
 	size_t	size;
 	size_t	total_size;
-	size_t	sign;
-	size_t	special;
-	char	*number;
 
-	sign = 0;
-	special = 0;
-	if (n > 2147483647 || n < (-2147483647 - 1))
-		return (NULL);
-	if (n < 0)
-	{
-		sign = 1;
-		n = -n;
-		if (n == -2147483648)
-		{
-			n = 2147483647;
-			special = 1;
-		}
-	}
-	if (n == 0)
-	{
-		number = malloc(2);
-		if (!number)
-			return (NULL);
-		number[0] = '0';
-		number[1] = '\0';
-		return (number);
-	}
 	size = ft_size(n);
 	number = malloc(size + sign + 1);
 	if (!number)
@@ -73,4 +48,41 @@ char	*ft_itoa(int n)
 	if (special == 1)
 		number[size + sign - 1]++;
 	return (number);
+}
+
+static char	*null_case(void)
+{
+	char	*num;
+
+	num = malloc(2);
+	if (!num)
+		return (NULL);
+	num[0] = '0';
+	num[1] = '\0';
+	return (num);
+}
+
+char	*ft_itoa(int n)
+{
+	size_t	sign;
+	size_t	special;
+
+	sign = 0;
+	special = 0;
+	if (n > 2147483647 || n < (-2147483647 - 1))
+		return (NULL);
+	if (n < 0)
+	{
+		sign = 1;
+		n = -n;
+		if (n == -2147483648)
+		{
+			n = 2147483647;
+			special = 1;
+		}
+	}
+	if (n == 0)
+		return (null_case());
+	else
+		return (fill_str(n, sign, special));
 }

@@ -6,7 +6,7 @@
 /*   By: lanton-m <lanton-m@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 17:58:20 by lanton-m@st       #+#    #+#             */
-/*   Updated: 2024/09/28 20:52:47 by lanton-m         ###   ########.fr       */
+/*   Updated: 2024/10/26 21:28:14 by lanton-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,17 @@
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	unsigned char	*array;
-	unsigned char	*a;
+	unsigned char	target;
 	size_t			i;
 
-	i = 0;
-	a = (unsigned char *)&c;
 	array = (unsigned char *)s;
-	if (!array)
-		return (0);
-	else
+	target = (unsigned char)c;
+	i = 0;
+	while (i < n)
 	{
-		while (*array && i < n)
-		{
-			if (*array == *a)
-				return ((void *)array);
-			else
-			{
-				array++;
-				i++;
-			}
-		}
+		if (array[i] == target)
+			return ((void *)&array[i]);
+		i++;
 	}
-	return (0);
+	return (NULL);
 }
