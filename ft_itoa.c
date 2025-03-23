@@ -71,15 +71,16 @@ char	*ft_itoa(int n)
 	special = 0;
 	if (n > 2147483647 || n < (-2147483647 - 1))
 		return (NULL);
+	if (n == -2147483648)
+	{
+		n = 2147483647;
+		special = 1;
+		sign = 1;
+	}
 	if (n < 0)
 	{
 		sign = 1;
 		n = -n;
-		if (n == -2147483648)
-		{
-			n = 2147483647;
-			special = 1;
-		}
 	}
 	if (n == 0)
 		return (null_case());

@@ -31,17 +31,17 @@ static size_t	ft_countword(char const *s, char c)
 	return (count);
 }
 
-static void	ft_freesplit(char **split)
+static void	ft_freesplit(char **str)
 {
 	int	i;
 
 	i = 0;
-	while (split[i])
+	while (str[i])
 	{
-		free(split[i]);
+		free(str[i]);
 		i++;
 	}
-	free(split);
+	free(str);
 }
 
 static size_t	ft_wrodlen(char const *s, char c)
