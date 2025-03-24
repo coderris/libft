@@ -12,19 +12,21 @@
 
 #include "libft.h"
 
-static const char	*finder(const char *str)
+static const char	*ft_push(const char *str)
 {
-	if ((*str >= '\x00' && *str <= '\x08') || (*str >= '\x0E'
-			&& *str <= '\x1F'))
-		return (0);
+	const char	*holder;
+
+	holder = str;
+	while (*str < '0' || *str > '9')
+	{
+		if ((*str >= '\x00' && *str <= '\x08') || (*str >= '\x0E'
+				&& *str <= '\x1F'))
+			return (0);
+		str++;
+	}
+	str = holder;
 	while ((*str >= 8 && *str <= 13) || *str == 32)
 		str++;
-	if (*str == '+')
-	{
-		str++;
-		if (*str == '+' || *str == '-')
-			return (0);
-	}
 	return (str);
 }
 
@@ -35,16 +37,15 @@ int	ft_atoi(const char *str)
 
 	result = 0;
 	sign = 1;
-	if (finder(str) == NULL)
-		return (0);
-	else
-		str = finder(str);
+	str = ft_push(str);
+	if (!str)
+		return (result);
 	if (*str == '-')
 	{
 		sign = (-1) * sign;
 		str++;
 	}
-	while (*str < '0' && *str > '9')
+	else if (*str == '+')
 		str++;
 	while (*str >= '0' && *str <= '9')
 	{

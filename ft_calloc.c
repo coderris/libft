@@ -16,16 +16,14 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	char	*aux;
 	size_t	space;
-	int		i;
+	size_t	i;
 
 	i = 0;
 	space = nmemb * size;
-	if (nmemb == 0 && size == 0)
-		space = 1;
 	aux = malloc(space);
 	if (!aux)
 		return (NULL);
-	while (aux[i] != '\0')
+	while (i < space)
 	{
 		aux[i] = 0;
 		i++;
